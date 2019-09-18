@@ -7,10 +7,10 @@ do
   client_ip=$(echo $line|awk '{print $1}')
   client_name=$(echo $line|awk '{print $2}')
 
-
 output="echo $client_ip $client_name.pulpfree.net       $client_name >> /tmp/static-leases.tmp"
 eval "$output"
 done
+
 sort /tmp/static-leases.tmp > /tmp/lux4rd0-static-leases.lan
 cat /etc/hosts /tmp/lux4rd0-static-leases.lan > /tmp/lux4rd0-hosts
 
